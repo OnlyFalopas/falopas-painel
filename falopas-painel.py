@@ -11,6 +11,8 @@ from sys import argv, executable
 vd = '\033[0;36m'
 cl = '\033[1;97m'
 #josh passou aqui 😎👍
+#dio colou aqui tbm
+
 def op():
         open('https://chat.whatsapp.com/FhFvqBpRYCV6tsmaBSMclT')
 
@@ -150,7 +152,6 @@ def devs():
 ┆•• Swag Baby
 ┆•• Ghosthype
 ┆•• josh washington
-┆•• Crowley
 ┆•• Dio Brando
 ┆
 ╰┈┈┈┈┈•
