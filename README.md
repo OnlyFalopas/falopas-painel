@@ -8,7 +8,7 @@ pip install --upgrade pip
 pip install requests
 ```
 
-##Instalação e acesso📲
+*Instalação e acesso📲*
 ```shell script
 git clone https://github.com/OnlyFalopas/falopas-painel
 cd falopas-painel
