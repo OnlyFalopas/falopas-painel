@@ -10,6 +10,7 @@ from sys import argv, executable
 
 vd = '\033[0;36m'
 cl = '\033[1;97m'
+
 #josh passou aqui 😎👍
 #dio colou aqui tbm
 
@@ -48,6 +49,7 @@ print(f"""
 print ("=" * 40)
 #####$
 def ip():
+        clear()
         ip=input(f"""\n╭┈ • DIGITE O IP (enter para consultar seu ip)
 ┆
 ╰┈ •• ❥ """)
@@ -62,6 +64,7 @@ def ip():
         ent()
 
 def cep():
+        clear()
         cep = int(input(f"""{cl}\n╭┈ • DIGITE O CEP (exemplo: 59112500)
 ┆
 ╰┈ •• ❥ """))
@@ -75,6 +78,7 @@ def cep():
         ent()
 
 def cpf():
+  clear()
   cpf = int(input(f""" {cl}\n╭┈ • DIGITE O CPF (exemplo:
   07068213868)
 ┆
@@ -84,6 +88,7 @@ def cpf():
   for item in mat: print(item,':',mat[item])
 
 def tell():
+        clear()
         print(f"{cl}CONSULTA TELEFONE APENAS PARA VERSÕES VIP'S")
         print("\n© ® OnlyFalopa Dev's")
         time.sleep(2)
@@ -91,6 +96,7 @@ def tell():
         reiniciar()
 
 def covid():
+        clear()
         ata = input("""\n╭┈ • DIGITE O ESTADO (exemplo: sp)
 ┆
 ╰┈ •• ❥ """)
@@ -103,6 +109,7 @@ def covid():
         ent()
 
 def placa():
+        clear()
         plc = input(""""\n╭┈ • DIGITE A PLACA (exemplo: mmp1345)
 ┆
 ╰┈ •• ❥ """).strip().upper()
@@ -121,6 +128,7 @@ def placa():
         ent()
 
 def cnpj():
+        clear()
         cnpj = input("""\n╭┈ • DIGITE O CNPJ (exemplo: 45039237000114)
 ┆
 ╰┈ •• ❥ """)
@@ -151,7 +159,7 @@ def devs():
 ┆•• MrDiniz
 ┆•• Swag Baby
 ┆•• Ghosthype
-┆•• josh washington
+┆•• Josh washington
 ┆•• Dio Brando
 ┆
 ╰┈┈┈┈┈•
@@ -159,6 +167,7 @@ def devs():
         ent()
 
 def ddd():
+        clear()
         ddd = input("""\n╭┈ • DIGITE O DDD
 ┆
 ╰┈ •• ❥ """)
@@ -176,6 +185,7 @@ def ddd():
         print("\n© ® OnlyFalopa Dev's")
         ent()
 def nome():
+    clear()
     nome = input("""╭┈ • DIGITE O NOME (OBS: Não utilize acentos...)
 ┆
 ╰┈ •• ❥ """ )
