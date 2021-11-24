@@ -22,6 +22,11 @@ pip install --upgrade pip
 ```
 pip install requests
 ```
+```apt install ruby
+```
+```
+gem install lolcat
+```
 
 <h2>Instalação e acesso📲</h2>
 
