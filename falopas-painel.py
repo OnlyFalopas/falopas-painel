@@ -2,10 +2,12 @@
 import os
 try:
         from requests import get
+        from webbrowser import open
 except:
         os.system('pip install requests')
-from webbrowser import open
-import time
+        os.system('pip install webbrowser')
+
+from time import sleep
 from sys import argv, executable
 
 vd = '\033[0;36m'
@@ -31,7 +33,7 @@ clear()
 banner()
 print('\n')
 print ("=" * 40)
- #menu
+#menu
 print(f"""
 {cl}❮ {vd}1{cl} ❯ CONSULTAR DDD
 {cl}❮ {vd}2{cl} ❯ CONSULTAR CEP
@@ -91,7 +93,7 @@ def tell():
         clear()
         print(f"{cl}CONSULTA TELEFONE APENAS PARA VERSÕES VIP'S")
         print("\n© ® OnlyFalopa Dev's")
-        time.sleep(2)
+        sleep(2)
         op()
         reiniciar()
 
@@ -161,7 +163,6 @@ def devs():
 ┆•• Ghosthype
 ┆•• Josh washington
 ┆•• Dio Brando
-┆
 ╰┈┈┈┈┈•
 """)
         ent()
