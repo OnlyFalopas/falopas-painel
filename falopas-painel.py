@@ -1,236 +1,190 @@
 #!/bin/python3
-import os
+
+from os import system
+from webbrowser import open
+import time
 try:
-        from requests import get
-        from webbrowser import open
+	from requests import get
 except:
-        os.system('pip install requests')
-        os.system('pip install webbrowser')
+	print("Instalando dependências")
+	system("pip install requests")
 
-from time import sleep
-from sys import argv, executable
-
-vd = '\033[0;36m'
-cl = '\033[1;97m'
-
-#josh passou aqui 😎👍
-#dio colou aqui tbm
-
-def op():
-        open('https://chat.whatsapp.com/FhFvqBpRYCV6tsmaBSMclT')
+green = "\033[1;32m"
+red = "\033[1;31m"
+yellow = "\033[1;33m"
+white = "\033[1;97m"
+f = '\033[m'
+n = '\033[1m'
+a = '\033[1;94m'
 
 def clear():
-    os.system('cls||clear')
+	system('cls||clear')
+
 def ent():
-    input('\nEnter para continuar')
-    reiniciar()
-def banner():
-    os.system('cat banner | lolcat')
-def reiniciar():
-    os.execv(executable, ['python3'] + argv)
+	input('\nenter para continuar')
 
-clear()
-banner()
-print('\n')
-print ("=" * 40)
-#menu
-print(f"""
-{cl}❮ {vd}1{cl} ❯ CONSULTAR DDD
-{cl}❮ {vd}2{cl} ❯ CONSULTAR CEP
-{cl}❮ {vd}3{cl} ❯ CONSULTAR CPF
-{cl}❮ {vd}4{cl} ❯ CONSULTAR IP
-{cl}❮ {vd}5{cl} ❯ CONSULTAR TELEFONE
-{cl}❮ {vd}6{cl} ❯ CONSULTAR NOME
-{cl}❮ {vd}7{cl} ❯ CONSULTAR CNPJ
-{cl}❮ {vd}8{cl} ❯ CONSULTAR COVID
-{cl}❮ {vd}0{cl} ❯ CONSULTAR PLACA
-
-{cl}❮ {vd}D{cl} ❯ DEV'S
-{cl}❮ {vd}S{cl} ❯ SAIR...
-   """ )
-print ("=" * 40)
-#####$
-def ip():
-        clear()
-        ip=input(f"""\n╭┈ • DIGITE O IP (enter para consultar seu ip)
-┆
-╰┈ •• ❥ """)
-        clear()
-        print('')
-        r = get(f'https://ipwhois.app/json/{ip}').json()
-        clear()
-        for i in r:
-                if r[i] != '':
-                        print(f'{vd}{i}{cl}: {r[i]}')
-        print("\n© ® OnlyFalopa Dev's")
-        ent()
-
-def cep():
-        clear()
-        cep = int(input(f"""{cl}\n╭┈ • DIGITE O CEP (exemplo: 59112500)
-┆
-╰┈ •• ❥ """))
-        clear()
-        request = get(f'https://viacep.com.br/ws/{cep}/json/')
-        data = request.json()
-        for item in data:
-                if data[item] != '':
-                        print(f'{vd}{item}{cl}: {data[item]}')
-        print("\n© ® OnlyFalopa Dev's")
-        ent()
+def group():
+	open('https://chat.whatsapp.com/FhFvqBpRYCV6tsmaBSMclT')
 
 def cpf():
-  clear()
-  cpf = int(input(f""" {cl}\n╭┈ • DIGITE O CPF (exemplo:
-  07068213868)
-┆
-╰┈ •• ❥ """))
-  cpff = get(f"http://ghostcenter.xyz/api/cpf/{cpf}")
-  mat = cpff.json()
-  for item in mat: print(item,':',mat[item])
+	cpf = int(input("informe o CPF: "))
+	url = get(f"http://ghostcenter.xyz/api/cpf/{cpf}").json()
+	for item in url:
+		if url[item] != '':
+			if type(url[item]) == dict:
+				print()
+				print(f'{green}{item}:{f}')
+				for c in url[item]:
+					print(f'	{green}{c}:{f}{n} {url[item][c]}{f}')
+				print()
+			elif type(url[item]) == str or int or float or bool:
+				print(f'{green}{item}{f}{n}: {url[item]}{f}')
+	ent()
 
-def tell():
-        clear()
-        print(f"{cl}CONSULTA TELEFONE APENAS PARA VERSÕES VIP'S")
-        print("\n© ® OnlyFalopa Dev's")
-        sleep(2)
-        op()
-        reiniciar()
+def ip():
+	ip = input(f"{green}Informe o IP: (enter para ver seu ip){f} ").strip()
+	url = get(f"https://ipwhois.app/json/{ip}").json()
+	for item in url:
+		if url[item] != '':
+			print(f'{green}{item}{f}{n}: {url[item]}{f}')
+	ent()
 
-def covid():
-        clear()
-        ata = input("""\n╭┈ • DIGITE O ESTADO (exemplo: sp)
-┆
-╰┈ •• ❥ """)
-        clear()
-        sp = get(f"https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/{ata}").json()
-        for item in sp:
-                if sp[item] != '':
-                        print(f'{vd}{item}{cl}: {sp[item]}')
-        print("\n© ® OnlyFalopa Dev's")
-        ent()
-
-def placa():
-        clear()
-        plc = input(""""\n╭┈ • DIGITE A PLACA (exemplo: mmp1345)
-┆
-╰┈ •• ❥ """).strip().upper()
-        clear()
-        r = get(f'https://apicarros.com/v1/consulta/{plc}/json', verify=False).json()
-        print('='*40)
-        a = 0
-        for i in r:
-                if a == 0:
-                        clear()
-                if r[i] != '':
-                        print(f'{vd}{i}{cl}: {r[i]}')
-                a += 1
-        print("\n© ® OnlyFalopa Dev's")
-        print('='*40)
-        ent()
-
-def cnpj():
-        clear()
-        cnpj = input("""\n╭┈ • DIGITE O CNPJ (exemplo: 45039237000114)
-┆
-╰┈ •• ❥ """)
-        pj = get(f'https://www.receitaws.com.br/v1/cnpj/{cnpj}/').json()
-        clear()
-        for i in pj:
-                if pj[i] != '':
-                        if type(pj[i]) == dict:
-                                print(f'{vd}{i}{cl}⤵')
-                                for c in pj[i]:
-                                        print(f'{vd}{c}{cl}: {pj[i][c]}')
-                        elif type(pj[i]) == list:
-                                print(vd,i+'⤵')
-                                for ite in pj[i]:
-                                        for ij in ite:
-                                                print(f'{vd}{ij}{cl}: {ite[ij]}')
-                        elif type(pj[i]) == str or int or float or bool:
-                                print(f'{vd}{i}{cl}: {pj[i]}')
-        ent()
-
-def devs():
-        clear()
-        print("""
-╭┈┈┈┈┈┈┈•
-┆ OnlyFalopas Dev's
-┆
-┆•• Spyware
-┆•• MrDiniz
-┆•• Swag Baby
-┆•• Ghosthype
-┆•• Josh washington
-┆•• Dio Brando
-╰┈┈┈┈┈•
-""")
-        ent()
+def cep():
+	cep = int(input(f'{green}Informe o CEP:{f} '))
+	url = get(f'https://viacep.com.br/ws/{cep}').json()
+	for i in url:
+		if url[i] != '':
+			print(f'{green}{i}{f}{n}: {url[i]}{f}')
+	ent()
 
 def ddd():
-        clear()
-        ddd = input("""\n╭┈ • DIGITE O DDD
-┆
-╰┈ •• ❥ """)
-        clear()
-        dd = get(f'https://brasilapi.com.br/api/ddd/v1/{ddd}').json()
-        clear()
-        for item in dd:
-                if type(dd[item]) == list:
-                        print(f'{vd}{item}{cl}:')
-                        for i in dd[item]:
-                                print(i)
-                elif type(dd[item]) == str or int or float or bool:
-                        print(f'{vd}{item}{cl}: {dd[item]}') #hi
+	ddd = int(input(f'{green}Informe o DDD:{f} '))
+	url = get(f'https://brasilapi.com.br/api/ddd/v1/{ddd}').json()
+	for i in url:
+		if url[i] != '':
+			if type(url[i]) == list:
+				print(green+i+f)
+				for c in url[i]:
+					print(f'{green}{c}{f}')
+			elif type(url[i]) == str or int:
+				print(f'{green}{i}{f}{n}: {url[i]}{f}')
+	ent()
 
-        print("\n© ® OnlyFalopa Dev's")
-        ent()
+def cnpj():
+	cnpj = input(f'''{n}ex:{f} 03778130000148\nCNPJ: ''').strip()
+	url = get(f'https://www.receitaws.com.br/v1/cnpj/{cnpj}').json()
+	clear()
+	for i in url:
+		if url[i] != '':
+			if type(url[i]) == dict:
+				print()
+				print(f'{green}{i}:{f}')
+				for c in url[i]:
+					print(f'  {green}{c}:{f}{n} {url[i][c]}{f}')
+				print()
+			elif type(url[i]) == list:
+				print()
+				print(f'{green}{i}:{f}')
+				for ite in url[i]:
+					for ij in ite:
+						print(f'  {green}{ij}:{f}{n} {ite[ij]}{f}')
+				print()
+			elif type(url[i]) == str or int or float or bool:
+				print(f'{green}{i}:{f}{n} {url[i]}{f}')
+	ent()
+
+def placa():
+	placa = input(f'{green}PLACA:{f} ').strip().lower()
+	url = get(f'https://apicarros.com/v1/consulta/{placa}/json', verify=False).json()
+	clear()
+	for i in url:
+		if url[i] != '':
+			print(f'{green}{i}:{f}{n} {url[i]}{f}')
+	ent()
+
+def covid():
+	estado = input(f"{green}Informe o ESTADO(ex: sp):{f} ").strip().lower()
+	url = get(f"https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/{estado}").json()
+	for item in url:
+		if url[item] != '':
+			print(f'{green}{item}{f}{n}: {url[item]}{f}')
+	ent()
+
+def devs():
+	print(f"{red} Equipe OnlyFalopas: {yellow} MrDiniz, Spyware,    Josh washington , Crowley, Swag Baby, Dio brando, Ghosthype{f}")
+	ent()
+
 def nome():
-    clear()
-    nome = input("""╭┈ • DIGITE O NOME (OBS: Não utilize acentos...)
-┆
-╰┈ •• ❥ """ )
-    cons = get(f"http://ghostcenter.xyz/api/nome/{nome}")
-    elliot = cons.json()
-    try:
-    	result = elliot['dados']
-    	for i in result:
-    		print("\n© ® OnlyFalopa Dev's")
-    		print(f"NOME = {i['nome']} ")
-    		print(f"CPF = {i['cpf']} ")
-    		print(f"NASCIMENTO = {i['nascimento']}")
-    		print(f"SEXO = {i['sexo']} ")
-    except:
-    	print("Nada foi encontrado....")
-    	ent()
-    	
-######
-try:
-        ope = input(f"{vd}Selecione uma opção {cl}==> ").strip().lower()[0]
-except:
-        reiniciar()
-if ope == '1':
-    ddd()
-elif ope == '2':
-    cep()
-elif ope == '3':
-    cpf()
-elif ope == '4':
-        ip()
-elif ope == '5':
-        tell()
-elif ope == '6':
-        nome()
-elif ope == '7':
-        cnpj()
-elif ope == '8':
-        covid()
-elif ope == '0':
-        placa()
-elif ope == 'd':
-        devs()
-elif ope == 's':
-        clear()
-        print(f'{vd}Obrigado por usar o nosso painel :)\033[m')
-else:
-        reiniciar()
+	nome = input("informe o NOME: ")
+	url = get(f"http://ghostcenter.xyz/api/nome/{nome}").json()
+	nomes = url['dados']
+	for spyware in nomes:
+		print(f"CPF = {spyware['cpf']}")
+		print(f"NOME = {spyware['nome']} ")
+		print(f"ANIVERSARIO = {spyware['nascimento']} ")
+		print(f"SEXO = {spyware['sexo']} ")
+	ent()
+
+while True:
+	try:
+		clear()
+		print(f"""{green}
+OOooOoO    Oo     o       .oOOOo.  OooOOo.     Oo    .oOOOo.  
+o         o  O   O       .O     o. O     `O   o  O   o     o  
+O        O    o  o       O       o o      O  O    o  O.       
+oOooO   oOooOoOo o       o       O O     .o oOooOoOo  `OOoo.  
+O       o      O O       O       o oOooOO'  o      O       `O 
+o       O      o O       o       O o        O      o        o 
+o       o      O o     . `o     O' O        o      O O.    .O 
+O'      O.     O OOoOooO  `OoooO'  o'       O.     O  `oooO' 
+															
+	{yellow} P A I N E L  D E  C O N S U L T A S
+{red}             By  OnlyFalopas
+{green}
+-----------
+|  MENU   |
+-----------
+
+{red}[{yellow}1{red}]{white} Consulta CEP
+{red}[{yellow}2{red}]{white} Consulta CPF
+{red}[{yellow}3{red}]{white} Consulta IP
+{red}[{yellow}4{red}]{white} Consulta NOME
+{red}[{yellow}5{red}]{white} Consulta COVID
+{red}[{yellow}6{red}]{white} Consulta CNPJ
+{red}[{yellow}7{red}]{white} Consulta PLACA
+{red}[{yellow}8{red}]{white} Consulta DDD
+{green}
+-----------
+| OUTROS  |
+-----------
+
+{red}[{yellow}D{red}]{white} DEVS
+{red}[{yellow}S{red}]{white} SAIR
+""")
+		user = input(f"{red}~>{f} ").strip().lower()[0]
+		if user == '1':
+			cep()
+		elif user == '2':
+			cpf()
+		elif user == '3':
+			ip()
+		elif user == '4':
+			nome()
+		elif user == '5':
+			covid()
+		elif user == '6':
+			cnpj()
+		elif user == '7':
+			placa()
+		elif user == '8':
+			ddd()
+		elif user == 's':
+			clear()
+			print(f'{green}Obrigado por usar o nosso painel, até mais :){f}')
+			break
+		elif user == 'd':
+			devs()
+	except:
+		continue
+	else:
+		continue
