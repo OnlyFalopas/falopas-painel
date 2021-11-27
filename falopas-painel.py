@@ -1,5 +1,14 @@
 #!/bin/python3
 
+from os import system
+from webbrowser import open
+import time
+try:
+	from requests import get
+except:
+	print("Instalando dependências")
+	system("pip install requests")
+
 green = "\033[1;32m"
 red = "\033[1;31m"
 yellow = "\033[1;33m"
@@ -8,61 +17,8 @@ f = '\033[m'
 n = '\033[1m'
 a = '\033[1;94m'
 
-
-from os import system
-
-
-
-def clear(): 
-        system("cls||clear")
-
-def banner():
-        print(f"""{green}
-OOooOoO    Oo     o       .oOOOo.  OooOOo.     Oo    .oOOOo.  
-o         o  O   O       .O     o. O     `O   o  O   o     o  
-O        O    o  o       O       o o      O  O    o  O.       
-oOooO   oOooOoOo o       o       O O     .o oOooOoOo  `OOoo.  
-O       o      O O       O       o oOooOO'  o      O       `O 
-o       O      o O       o       O o        O      o        o 
-o       o      O o     . `o     O' O        o      O O.    .O 
-O'      O.     O OOoOooO  `OoooO'  o'       O.     O  `oooO' 
-															
-	{yellow} P A I N E L  D E  C O N S U L T A S
-{red}             By  OnlyFalopas
-{green}
------------
-|  MENU   |
------------
-{red}[{yellow}1{red}]{white} Consulta CEP
-{red}[{yellow}2{red}]{white} Consulta CPF
-{red}[{yellow}3{red}]{white} Consulta IP
-{red}[{yellow}4{red}]{white} Consulta NOME
-{red}[{yellow}5{red}]{white} Consulta COVID
-{red}[{yellow}6{red}]{white} Consulta CNPJ
-{red}[{yellow}7{red}]{white} Consulta PLACA
-{red}[{yellow}8{red}]{white} Consulta DDD
-{green}
------------
-| OUTROS  |
------------
-{red}[{yellow}D{red}]{white} DEVS
-{red}[{yellow}S{red}]{white} SAIR
-""")
-
-
-
-try:
-	from requests import get
-except:
-	print("Instalando dependências")
-	system("pip install requests")
-
-try:
-        from webbrowser import open
-except ImportError:
-        system("pip install webbrowser")
-        clear()
-
+def clear():
+	system('cls||clear')
 
 def ent():
 	input('\nenter para continuar')
@@ -74,15 +30,15 @@ def cpf():
 	cpf = int(input("informe o CPF: "))
 	url = get(f"http://ghostcenter.xyz/api/cpf/{cpf}").json()
 	for item in url:
-                if url[item] != '':
-                        if type(url[item]) == dict:
-                                print()
-                                print(f'{green}{item}:{f}')
-                                for c in url[item]:
-                                        print(f'	{green}{c}:{f}{n} {url[item][c]}{f}')
-                                print()
-                        elif type(url[item]) == str or int or float or bool:
-                                print(f'{green}{item}{f}{n}: {url[item]}{f}')
+		if url[item] != '':
+			if type(url[item]) == dict:
+				print()
+				print(f'{green}{item}:{f}')
+				for c in url[item]:
+					print(f'	{green}{c}:{f}{n} {url[item][c]}{f}')
+				print()
+			elif type(url[item]) == str or int or float or bool:
+				print(f'{green}{item}{f}{n}: {url[item]}{f}')
 	ent()
 
 def ip():
@@ -155,7 +111,7 @@ def covid():
 	ent()
 
 def devs():
-	print(f"{red} Equipe OnlyFalopas: {yellow} MrDiniz, Spyware, Josh washington , Crowley, Swag Baby, Dio brando, Ghosthype{f}")
+	print(f"{red} Equipe OnlyFalopas: {yellow} MrDiniz, Spyware,    Josh washington , Crowley, Swag Baby, Dio brando, Ghosthype{f}")
 	ent()
 
 def nome():
@@ -169,57 +125,66 @@ def nome():
 		print(f"SEXO = {spyware['sexo']} ")
 	ent()
 
+while True:
+	try:
+		clear()
+		print(f"""{green}
+OOooOoO    Oo     o       .oOOOo.  OooOOo.     Oo    .oOOOo.  
+o         o  O   O       .O     o. O     `O   o  O   o     o  
+O        O    o  o       O       o o      O  O    o  O.       
+oOooO   oOooOoOo o       o       O O     .o oOooOoOo  `OOoo.  
+O       o      O O       O       o oOooOO'  o      O       `O 
+o       O      o O       o       O o        O      o        o 
+o       o      O o     . `o     O' O        o      O O.    .O 
+O'      O.     O OOoOooO  `OoooO'  o'       O.     O  `oooO' 
+															
+	{yellow} P A I N E L  D E  C O N S U L T A S
+{red}             By  OnlyFalopas
+{green}
+-----------
+|  MENU   |
+-----------
 
+{red}[{yellow}1{red}]{white} Consulta CEP
+{red}[{yellow}2{red}]{white} Consulta CPF
+{red}[{yellow}3{red}]{white} Consulta IP
+{red}[{yellow}4{red}]{white} Consulta NOME
+{red}[{yellow}5{red}]{white} Consulta COVID
+{red}[{yellow}6{red}]{white} Consulta CNPJ
+{red}[{yellow}7{red}]{white} Consulta PLACA
+{red}[{yellow}8{red}]{white} Consulta DDD
+{green}
+-----------
+| OUTROS  |
+-----------
 
-def voidrun():
-        while True:
-                clear() 
-                banner()
-                try:
-                        user = str(input('Digite a opcao desejada >> ')).strip().lower()[0]
-
-                        if(user == '1'):
-                                clear()
-                                cep()
-
-                        elif(user == '2'):
-                                clear()
-                                cpf()
-
-                        elif(user == '3'):
-                                clear()
-                                ip()
-
-                        elif(user == '4'):
-                                clear()
-                                nome()
-
-                        elif(user == '5'):
-                                clear()
-                                covid()
-
-                        elif(user == '6'):
-                                clear()
-                                cnpj()
-
-                        elif(user == '7'):
-                                clear()
-                                placa()
-
-                        elif(user == '8'):
-                                clear()
-                                ddd()
-
-                        elif(user == 's'):
-                                clear()
-                                print(f'{green}Obrigado por usar o nosso painel, até mais :)')
-                                exit()
-
-                        elif(user == 'd'):
-                                clear()
-                                devs()
-                        else:
-                                continue
-                except:
-                        break
-voidrun()
+{red}[{yellow}D{red}]{white} DEVS
+{red}[{yellow}S{red}]{white} SAIR
+""")
+		user = input(f"{red}~>{f} ").strip().lower()[0]
+		if user == '1':
+			cep()
+		elif user == '2':
+			cpf()
+		elif user == '3':
+			ip()
+		elif user == '4':
+			nome()
+		elif user == '5':
+			covid()
+		elif user == '6':
+			cnpj()
+		elif user == '7':
+			placa()
+		elif user == '8':
+			ddd()
+		elif user == 's':
+			clear()
+			print(f'{green}Obrigado por usar o nosso painel, até mais :){f}')
+			break
+		elif user == 'd':
+			devs()
+	except:
+		continue
+	else:
+		continue
