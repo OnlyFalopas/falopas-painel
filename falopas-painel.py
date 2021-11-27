@@ -7,7 +7,6 @@ try:
 except:
 	print("Instalando dependências")
 	system("pip install requests")
-        system("pip install webbrowser") 
 
 green = "\033[1;32m"
 red = "\033[1;31m"
