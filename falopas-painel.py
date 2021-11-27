@@ -173,6 +173,7 @@ def nome():
 
 def voidrun():
         while True:
+                clear() 
                 banner()
                 try:
                         user = str(input('Digite a opcao desejada >> ')).strip().lower()[0]
