@@ -18,7 +18,6 @@ pip install requests
 <h2>Instalação e acesso📲</h2>
 
 ```
-
  git clone https://github.com/OnlyFalopas/falopas-painel
  cd falopas-painel
  python3 falopas-painel.py
