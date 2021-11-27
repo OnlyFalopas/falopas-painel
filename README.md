@@ -14,7 +14,7 @@ pkg i python -y
 pip install --upgrade pip
 pip install requests
 ```
-
+```
 <h2>Instalação e acesso📲</h2>
 
  git clone https://github.com/OnlyFalopas/falopas-painel
