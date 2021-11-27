@@ -2,12 +2,12 @@
 
 from os import system
 from webbrowser import open
-import time
 try:
 	from requests import get
 except:
 	print("Instalando dependências")
 	system("pip install requests")
+        system("pip install webbrowser") 
 
 green = "\033[1;32m"
 red = "\033[1;31m"
