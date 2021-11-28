@@ -111,7 +111,7 @@ def covid():
 	ent()
 
 def devs():
-	print(f"{red} Equipe OnlyFalopas: {yellow} MrDiniz, Spyware,    Josh washington , Crowley, Swag Baby, Dio brando, Ghosthype{f}")
+	print(f"{red} Equipe OnlyFalopas: {yellow} MrDiniz, Spyware, Josh washington , Crowley, Swag Baby, Dio brando, Ghosthype{f}")
 	ent()
 
 def nome():
