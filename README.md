@@ -10,11 +10,11 @@ Este é um painel de consultas grátis feito 100% pela equipe OnlyFalopas
 
 
 ```
-apt update && apt upgrade -y
-pkg i git -y
-pkg i python -y
-pip install --upgrade pip
+pkg install git -y
+pkg install python -y
 pip install requests
+pkg install ruby 
+gem install lolcat 
 ```
 
 <h2>Instalação e acesso📲</h2>
