@@ -29,6 +29,8 @@ Antes de começar, verifique se você atende aos seguintes requisitos:
  cd falopas-painel
  python3 falopas-painel.py
 ```
+## 🤝 Colaboradores
+Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 <table>
     <td align="center">
