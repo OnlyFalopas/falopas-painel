@@ -37,7 +37,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       <a href="#">
         <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/72531976.jpg" width="100px;" alt="Foto do diniz"/><br>
         <sub>
-          <b style="text-decoration: none;">MR diniz</b>
+          <span>MR diniz</span>
         </sub>
       </a>
     </td>
