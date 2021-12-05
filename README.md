@@ -29,3 +29,16 @@ Antes de começar, verifique se você atende aos seguintes requisitos:
  cd falopas-painel
  python3 falopas-painel.py
 ```
+
+<table>
+    <td align="center">
+      <a href="#">
+        <img src="" width="100px;" alt="Foto do swag"/><br>
+        <sub>
+          <b>Copy Paste</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
+
