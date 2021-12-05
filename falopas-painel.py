@@ -1,203 +1,274 @@
-import os
-try:
-        from requests import get
-        from webbrowser import open
-except:
-        os.system('pip install requests')
-        os.system('pip install webbrowser')
-
-from time import sleep
-from sys import argv, executable
-
+#--------------------------------
+magen = '\033[1;95m '
+verm = '\033[1;31m'
+verd = '\033[1;32m'
 vd = '\033[0;36m'
 cl = '\033[1;97m'
-verm = '\033[1;31m'
-form = '\033[0m'
-#josh passou aqui 😎👍
-#dio colou aqui tbm
+amal = '\033[1;96m '
 
-def op():
-        open('https://chat.whatsapp.com/FhFvqBpRYCV6tsmaBSMclT')
 
-def clear():
-    os.system('cls||clear')
-def ent():
-    input('\nEnter para continuar')
-    reiniciar()
-def banner():
-    os.system('cat banner | lolcat')
-def reiniciar():
-    os.execv(executable, ['python3'] + argv)
+from os import system, name, execl
+from sys import executable, argv, stdout
+from time import strftime, sleep
+from getpass import getuser
 
-clear()
-banner()
-print('\n')
-print ("=" * 40)
-#menu
-print(f"""
-{cl}❮ {vd}1{cl} ❯ CONSULTAR DDD
-{cl}❮ {vd}2{cl} ❯ CONSULTAR CEP
-{cl}❮ {vd}3{cl} ❯ CONSULTAR CPF {verm}[OFF]
-{cl}❮ {vd}4{cl} ❯ CONSULTAR IP
-{cl}❮ {vd}5{cl} ❯ CONSULTAR TELEFONE
-{cl}❮ {vd}6{cl} ❯ CONSULTAR NOME {verm}[OFF]
-{cl}❮ {vd}7{cl} ❯ CONSULTAR CNPJ
-{cl}❮ {vd}8{cl} ❯ CONSULTAR COVID
-{cl}❮ {vd}0{cl} ❯ CONSULTAR PLACA
-{cl}❮ {vd}D{cl} ❯ DEV'S
-{cl}❮ {vd}S{cl} ❯ SAIR...
-   """ )
-print ("=" * 40)
-#####$
-def ip():
-        clear()
-        ip=input(f"""\n╭┈ • DIGITE O IP (enter para consultar seu ip)
-┆
-╰┈ •• ❥ """)
-        clear()
-        print('')
-        r = get(f'https://ipwhois.app/json/{ip}').json()
-        clear()
-        for i in r:
-                if r[i] != '':
-                        print(f'{vd}{i}{cl}: {r[i]}')
-        print("\n© ® OnlyFalopa Dev's")
-        ent()
 
-def cep():
-        clear()
-        cep = int(input(f"""{cl}\n╭┈ • DIGITE O CEP (exemplo: 59112500)
-┆
-╰┈ •• ❥ """))
-        clear()
-        request = get(f'https://viacep.com.br/ws/{cep}/json/')
-        data = request.json()
-        for item in data:
-                if data[item] != '':
-                        print(f'{vd}{item}{cl}: {data[item]}')
-        print("\n© ® OnlyFalopa Dev's")
-        ent()
 
-def cpf():
-  clear()
-  print (f"{verm}Consulta indisponível no momento{form}")
-  ent()
-def tell():
-        clear()
-        print(f"{cl}CONSULTA TELEFONE APENAS PARA VERSÕES VIP'S")
-        print("\n© ® OnlyFalopa Dev's")
-        sleep(2)
-        op()
-        reiniciar()
+class basic():
+    def op():
+        try:
+            open('https://chat.whatsapp.com/FhFvqBpRYCV6tsmaBSMclT')
+        except:
+            basic.cls()
+            print(f'{verm}Navegador nao encontrado. Entre no grupo por conta propria.\nhttps://chat.whatsapp.com/FhFvqBpRYCV6tsmaBSMclT')
+            basic.ent()
 
-def covid():
-        clear()
-        ata = input("""\n╭┈ • DIGITE O ESTADO (exemplo: sp)
-┆
-╰┈ •• ❥ """)
-        clear()
-        sp = get(f"https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/{ata}").json()
-        for item in sp:
-                if sp[item] != '':
-                        print(f'{vd}{item}{cl}: {sp[item]}')
-        print("\n© ® OnlyFalopa Dev's")
-        ent()
+    def cls():
+        system("cls||clear")
 
-def placa():
-        clear()
-        plc = input(""""\n╭┈ • DIGITE A PLACA (exemplo: mmp1345)
-┆
-╰┈ •• ❥ """).strip().upper()
-        clear()
-        r = get(f'https://apicarros.com/v1/consulta/{plc}/json', verify=False).json()
-        print('='*40)
-        a = 0
-        for i in r:
-                if a == 0:
-                        clear()
-                if r[i] != '':
-                        print(f'{vd}{i}{cl}: {r[i]}')
-                a += 1
-        print("\n© ® OnlyFalopa Dev's")
-        print('='*40)
-        ent()
+    def reset():
+        stdout.flush()
+        execl(executable, 'python', __file__, * argv[1:])
 
-def cnpj():
-        clear()
-        cnpj = input("""\n╭┈ • DIGITE O CNPJ (exemplo: 45039237000114)
-┆
-╰┈ •• ❥ """)
-        pj = get(f'https://www.receitaws.com.br/v1/cnpj/{cnpj}/').json()
-        clear()
-        for i in pj:
-                if pj[i] != '':
-                        if type(pj[i]) == dict:
-                                print(f'{vd}{i}{cl}⤵')
-                                for c in pj[i]:
-                                        print(f'{vd}{c}{cl}: {pj[i][c]}')
-                        elif type(pj[i]) == list:
-                                print(vd,i+'⤵')
-                                for ite in pj[i]:
-                                        for ij in ite:
-                                                print(f'{vd}{ij}{cl}: {ite[ij]}')
-                        elif type(pj[i]) == str or int or float or bool:
-                                print(f'{vd}{i}{cl}: {pj[i]}')
-        ent()
+    def ent():
+        input(f'{verd}\nEnter para continuar... ')
+        basic.reset()
 
-def devs():
-        clear()
-        print(f"{verm}Equipe OnlyFalopas: {vd} MrDiniz, Spyware, Josh washington , Crowley, Swag Baby, Dio brando, Ghosthype{form}")
-        ent()
 
-def ddd():
-        clear()
-        ddd = input("""\n╭┈ • DIGITE O DDD
-┆
-╰┈ •• ❥ """)
-        clear()
-        dd = get(f'https://brasilapi.com.br/api/ddd/v1/{ddd}').json()
-        clear()
-        for item in dd:
-                if type(dd[item]) == list:
-                        print(f'{vd}{item}{cl}:')
-                        for i in dd[item]:
-                                print(i)
-                elif type(dd[item]) == str or int or float or bool:
-                        print(f'{vd}{item}{cl}: {dd[item]}') #hi
+class info():
+    def hours():
+        year, month, day, hour, min = map(int, strftime("%Y %m %d %H %M").split())
+        return f'[{hour}:{min}]'
 
-        print("\n© ® OnlyFalopa Dev's")
-        ent()
-def nome():
-	clear()
-	print(f"{verm}Consulta indisponível no momento{form}")
-	ent()
-######
+    def ins():
+        print(info.hours())
+
+    def user():
+        us = getuser()
+        return us
+
+
+
+class prints():
+    def ban():
+        print(f'''{magen}
+   __      _
+  / _|    | |
+ | |_ __ _| | ___  _ __   __ _ ___
+ |  _/ _` | |/ _ \| '_ \ / _` / __|
+ | || (_| | | (_) | |_) | (_| \__ \\
+ |_| \__,_|_|\___/| .__/ \__,_|___/
+                  | |
+                  |_|
+        ''')
+
+    def util():
+        print(f'''{amal}
+{verd}1{amal} - Consulta CPF
+{verd}2{amal} - Consulta NOME
+{verd}3{amal} - Consulta CNPJ
+{verd}4{amal} - Consulta CEP
+{verd}5{amal} - Consulta PLACA
+{verd}6{amal} - Consulta Covid
+{verd}7{amal} - Devs
+{verd}8{amal} - Grupo Whatsapp
+{verd}9{amal} - Sair{magen}
+              ''')
+
+# Instalação de libs.
+
 try:
-        ope = input(f"{vd}Selecione uma opção {cl}==> ").strip().lower()[0]
+    from webbrowser import open
 except:
-        reiniciar()
-if ope == '1':
-    ddd()
-elif ope == '2':
-    cep()
-elif ope == '3':
-    cpf()
-elif ope == '4':
-        ip()
-elif ope == '5':
-        tell()
-elif ope == '6':
-        nome()
-elif ope == '7':
-        cnpj()
-elif ope == '8':
-        covid()
-elif ope == '0':
-        placa()
-elif ope == 'd':
-        devs()
-elif ope == 's':
-        clear()
-        print(f'{vd}Obrigado por usar o nosso painel :)\033[m')
-else:
-        reiniciar()
+    if(name=="posix"):
+        system("pacman -S python-pip")
+        system("pip install webbrowser")
+        basic.cls()
+        print(info.hours(),'Instalado webbrowser.')
+        sleep(3)
+        basic.cls()
+
+    else:
+        system("pip install webbrowser")
+        basic.cls()
+        print(info.hours(),'Instalado webbrowser')
+        sleep(3)
+        basic.cls()
+
+try:
+    from requests import get
+except:
+    if(name=="posix"):
+        system("pacman -S python-pip")
+        system("pip install requests")
+        basic.cls()
+        print(info.hours(),'Instalado requests.')
+        sleep(3)
+        basic.cls()
+
+    else:
+        system("pip install requests")
+        basic.cls()
+        print(info.hours(),'Instalado requests.')
+        sleep(3)
+        basic.cls()
+
+class consultas():
+    def inpu():
+        prints.ban()
+        prints.util()
+
+        # parte que talvez vai ficar bagunçada, mas vou tentar deixar organizado.
+
+    def escs():
+        try:
+            print(f'Digite a opcao desejada.\n')
+            inp = int(input(f'╭─{info.user()}{vd}@{vd}{magen}{info.user()} in ~via  v3.9.9\n╰─λ '))
+        except:
+            print(f'{verm}Voce nao digitou um numero.')
+            sleep(3)
+            basic.reset()
+            basic.cls()
+
+        if(inp == 1):
+            basic.cls()
+            print(f'Digite o cpf sem pontos.')
+            try:
+                cpf = int(input(f'╭─{info.user()}{vd}@{vd}{magen}{info.user()} in ~via  v3.9.9\n╰─λ '))
+            except:
+                basic.cls()
+                print(f'{verm}Voce nao digitou um numero de CPF valido!')
+                sleep(3)
+                basic.ent()
+
+            # URL DO GET
+            try:
+                url = get(f'http://api.trackear.com.br/basepv/cpf/{cpf}/noip').json()
+            except:
+                basic.cls()
+                print(f'!ERRO! Ocorreu um erro na tentativa de request. Tente novamente mais tarde.')
+                basic.ent()
+
+            for i in url:
+                print(f'{magen}{i}{magen}: {url[i]}')
+            basic.ent()
+
+        elif(inp == 2):
+            basic.cls()
+            print(f'Digite o nome sem acentos.')
+            nom = str(input(f'╭─{info.user()}{vd}@{vd}{magen}{info.user()} in ~via  v3.9.9\n╰─λ '))
+
+            # URL DO GET
+            try:
+                url = get(f'http://ghostcenter.xyz/api/nome/{nom}').json()
+            except:
+                basic.cls()
+                print(f'!ERRO! Ocorreu um erro na tentativa de request. Tente novamente mais tarde.')
+                basic.ent()
+
+            for a in url:
+                print(f'{magen}{a}{magen}: {url[a]}')
+            basic.ent()
+
+        elif(inp == 3):
+            basic.cls()
+            cnpj=input(f'╭─{info.user()}{vd}@{vd}{magen}{info.user()} in ~via  v3.9.9\n╰─λ ')
+            try:
+                pj = get(f'https://www.receitaws.com.br/v1/cnpj/{cnpj}/').json()
+            except:
+                basic.cls()
+                print(f'!ERRO! Ocorreu um erro na tentativa de request. Tente novamente mais tarde.')
+                basic.ent()
+
+            basic.cls()
+            for i in pj:
+                    if pj[i] != '':
+                            if type(pj[i]) == dict:
+                                    print(f'{vd}{i}{cl}⤵')
+                                    for c in pj[i]:
+                                            print(f'{vd}{c}{cl}: {pj[i][c]}')
+                            elif type(pj[i]) == list:
+                                    print(vd,i+'⤵')
+                                    for ite in pj[i]:
+                                            for ij in ite:
+                                                    print(f'{vd}{ij}{cl}: {ite[ij]}')
+                            elif type(pj[i]) == str or int or float or bool:
+                                    print(f'{vd}{i}{cl}: {pj[i]}')
+            basic.ent()
+
+        elif(inp == 4):
+            basic.cls()
+            print(f'Digite o cep sem espacos e pontos.')
+            try:
+                cep = int(input(f'╭─{info.user()}{vd}@{vd}{magen}{info.user()} in ~via  v3.9.9\n╰─λ '))
+            except:
+                print(f'{verm}Voce nao digitou um cep valido!')
+                basic.ent()
+
+            try:
+                url = get(f'https://viacep.com.br/ws/{cep}/json/').json()
+            except:
+                basic.cls()
+                print(f'!ERRO! Ocorreu um erro na tentativa de request. Tente novamente mais tarde.')
+                basic.ent()
+
+            for i in url:
+                print(f'{magen}{i}{magen}: {url[i]}')
+            basic.ent()
+
+        elif(inp == 5):
+            basic.cls()
+            print(f'Digite a placa sem pontos.')
+            try:
+                placa = int(input(f'╭─{info.user()}{vd}@{vd}{magen}{info.user()} in ~via  v3.9.9\n╰─λ '))
+            except:
+                print(f'{verm}Voce nao digitou uma placa valida!')
+                basic.ent()
+
+            try:
+                url = get(f'https://apicarros.com/v1/consulta/{placa}/json', verify=False).json()
+            except:
+                basic.cls()
+                print(f'!ERRO! Ocorreu um erro na tentativa de request. Tente novamente mais tarde.')
+                basic.ent()
+
+            for j in url:
+                print(f'{magen}{j}{magen}: {url[j]}')
+            basic.ent()
+
+        elif(inp == 6):
+            basic.cls()
+            print(f'Digite o estado.')
+            estad = str(input(f'╭─{info.user()}{vd}@{vd}{magen}{info.user()} in ~via  v3.9.9\n╰─λ '))
+            try:
+                sp = get(f"https://covid19-brazil-api.now.sh/api/report/v1/brazil/uf/{estad}").json()
+            except:
+                basic.cls()
+                print(f'!ERRO! Ocorreu um erro na tentativa de request. Tente novamente mais tarde.')
+                basic.ent()
+
+            for item in sp:
+                    if sp[item] != '':
+                            print(f'{vd}{item}{cl}: {sp[item]}')
+
+            basic.ent()
+
+        elif(inp == 7):
+            basic.cls()
+            print(f"{verm}Equipe OnlyFalopas: {magen} MrDiniz, Spyware, Josh washington , Crowley, Swag Baby, Dio brando, Ghosthype")
+            basic.ent()
+
+        elif(inp == 8):
+            basic.op()
+
+        elif(inp == 9):
+            basic.cls()
+            print(f'{magen}Obrigado por usar o nosso painel :)\033[m')
+            exit()
+
+
+# chamar voids que criei
+
+basic.cls()
+consultas.inpu()
+consultas.escs()
