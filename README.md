@@ -58,18 +58,27 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
        </a>
    </td>
    <td align="center">
-       <a href="https://github.com/DioBruh/">
-         <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/87872423.jpg" width="100px;" alt="DIO"/><br>
+       <a href="https://github.com/Spyware0">
+         <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/87285320.jpg" width="100px;" alt="SPYWARE"/><br>
         <sub>
-           <b>Dio Brando</b>
+           <b>Spyware</b>
         </sub>
        </a>
    </td>
+   
   <td align="center">
        <a href="https://github.com/GhostHype">
          <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/78053137.png" width="100px;" alt="ghost"/><br>
         <sub>
            <b>GhostHype</b>
+        </sub>
+       </a>
+   </td>
+ <td align="center">
+       <a href="https://github.com/DioBruh/">
+         <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/87872423.jpg" width="100px;" alt="DIO"/><br>
+        <sub>
+           <b>Dio Brando</b>
         </sub>
        </a>
    </td>
