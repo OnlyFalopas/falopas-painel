@@ -33,12 +33,37 @@ Antes de começar, verifique se você atende aos seguintes requisitos:
 <table>
     <td align="center">
       <a href="#">
-        <img src="" width="100px;" alt="Foto do swag"/><br>
+        <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/72531976.jpg" width="100px;" alt="Foto do diniz"/><br>
         <sub>
-          <b>Copy Paste</b>
+          <b>MR diniz</b>
         </sub>
       </a>
     </td>
+  <td align="center">
+       <a href="#">
+         <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/89675173.jpg" width="100px;" alt="Foto do swag"/><br>
+         <sub>
+           <b>SWAG</b>
+         </sub>
+       </a>
+   </td>
+   <td align="center">
+       <a href="#">
+         <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/89495720.jpg" width="100px;" alt="Foto do Josh"/><br>
+         <sub>
+           <b>Josh Washington</b>
+         </sub>
+       </a>
+   </td>
+   <td align="center">
+       <a href="#">
+         <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/87872423.jpg" width="100px;" alt="DIO"/><br>
+         <sub>
+           <b>Dio Brando</b>
+         </sub>
+       </a>
+   </td>
+  
   </tr>
 </table>
 
