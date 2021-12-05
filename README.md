@@ -34,7 +34,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
 
 <table>
     <td align="center">
-      <a href="#">
+      <a href="https://github.com/mrdiniz88">
         <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/72531976.jpg" width="100px;" alt="Foto do diniz"/><br>
         <sub>
           <b pnclick="www.google.com">MR diniz</b>
@@ -42,7 +42,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
       </a>
     </td>
   <td align="center">
-       <a href="#">
+       <a href="https://github.com/Swag666baby">
          <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/89675173.jpg" width="100px;" alt="Foto do swag"/><br>
          <sub>
            <b>SWAG</b>
@@ -50,7 +50,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
        </a>
    </td>
    <td align="center">
-       <a href="#">
+       <a href="https://github.com/Josh-Washington">
          <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/89495720.jpg" width="100px;" alt="Foto do Josh"/><br>
          <sub>
            <b>Josh Washington</b>
@@ -58,14 +58,21 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
        </a>
    </td>
    <td align="center">
-       <a href="#">
+       <a href="https://github.com/DioBruh/">
          <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/87872423.jpg" width="100px;" alt="DIO"/><br>
-         <sub>
+        <sub>
            <b>Dio Brando</b>
-         </sub>
+        </sub>
        </a>
    </td>
-  
+  <td align="center">
+       <a href="https://github.com/GhostHype">
+         <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/78053137.png" width="100px;" alt="ghost"/><br>
+        <sub>
+           <b>GhostHype</b>
+        </sub>
+       </a>
+   </td>
   </tr>
 </table>
 
