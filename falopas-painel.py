@@ -255,7 +255,7 @@ class consultas():
 
         elif(inp == 7):
             basic.cls()
-            print(f"{verm}Equipe OnlyFalopas: {magen} MrDiniz, Spyware, Josh washington , Crowley, Swag Baby, Dio brando, Ghosthype")
+            print(f"{verm}Equipe OnlyFalopas: {magen} MrDiniz, Spyware, R0han Kishibe , Crowley, Swag Baby, Dio brando, Ghosthype")
             basic.ent()
 
         elif(inp == 8):
