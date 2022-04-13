@@ -50,7 +50,7 @@ Agradecemos às seguintes pessoas que contribuíram para este projeto:
        </a>
    </td>
    <td align="center">
-       <a href="https://github.com/Josh-Washington">
+       <a href="https://github.com/R0han-Kishibe">
          <img src="https://github.com/OnlyFalopas/falopas-painel/blob/main/devs/89495720.jpg" width="100px;" alt="Foto do Josh"/><br>
          <sub>
            <b>R0han Kishibe </b>
